@@ -1,7 +1,7 @@
 const express = require ('express');
 const {randomBytes} = require('crypto');
 const bodyParser = require('body-parser');
-const router = express.Router();
+
 const app = express ()
 const port = 5555;
 const posts = {};
