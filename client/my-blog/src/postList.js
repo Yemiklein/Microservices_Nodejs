@@ -1,5 +1,8 @@
-import React, {useSstate, useEffect} from 'react';  
-import axios from 'axios';  
+/* eslint-disable import/no-anonymous-default-export */
+import React, {useState, useEffect} from 'react';  
+import axios from 'axios'; 
+import CommentCreate from './commentCreate';
+
 
 
 export default () => {
@@ -10,7 +13,7 @@ export default () => {
     };
     useEffect(() => {
         fetchPosts();
-    },[]);
+    });
     const renderedPosts = Object.values(posts).map((post) => {
         return (
             <div className="card" 
@@ -19,6 +22,7 @@ export default () => {
              >
                 <div className="card-body">
                     <h3>{post.title}</h3>
+                    <CommentCreate postId={post.id} />
                 </div>
             </div>
         );
