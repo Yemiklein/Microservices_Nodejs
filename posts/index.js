@@ -1,14 +1,17 @@
 const express = require ('express');
 const {randomBytes} = require('crypto');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 
 const app = express ()
+app.use(cors ()); 
 const port = 5555;
 const posts = {};
 
 
 
-// app.use(express.json());
+app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -26,11 +29,6 @@ app.post('/posts', (req, res) => {
     };
     res.status(201).json(posts[id]);
 });
-
-
-
-
-
 
 app.listen(port, () =>{
     console.log(`Server is running on port ${port}`);

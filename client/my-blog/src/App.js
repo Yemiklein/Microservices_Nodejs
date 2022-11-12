@@ -1,15 +1,17 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React,{useState} from 'react';
-import PostCreate from './postCreate';
-import axios from 'axios';
+import React from "react";
+import PostCreate from "./postCreate";
+import PostList from "./postList";
 
 
-
-
-export default  () => {
-    return <div className='container'>
-        <h1>Create Post</h1>
-        <PostCreate />
-    </div>;
-
+export default () => {
+  return (
+    <div className="container">
+      <h1>Create Post</h1>
+      <PostCreate />
+      {/* <hr /> */}
+      <h1>Posts</h1>
+      <PostList />
+    </div>
+  );
 };
