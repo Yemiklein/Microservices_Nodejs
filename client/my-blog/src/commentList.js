@@ -3,15 +3,17 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 
-export default () => {
-    const [comments, setComments] = useState({});
+export default ({postId}) => {
+    const [comments, setComments] = useState([]);
     const fetchData = async () => {
-        const res = await axios.get("http://localhost:5000/posts");
+        const res = await axios.get(
+            `http://localhost:5000/posts/${postId}/comments`
+            );
         setComments(res.data);
     };
     useEffect(() => {
         fetchData();
-    }, []);
+    });
     const renderedComments = comments.map((comment) => {
         return (
        <li
@@ -26,4 +28,4 @@ export default () => {
               {renderedComments}
        </ul>
     );
-}
+};
